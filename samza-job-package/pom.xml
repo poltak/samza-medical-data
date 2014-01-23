@@ -3,13 +3,58 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>SamzaMedicalData</artifactId>
-    <groupId>SamzaMedicalData</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>samza-medical-data-parent</artifactId>
+    <groupId>samza</groupId>
+    <version>0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>samza-job-package</artifactId>
+  <packaging>jar</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>samza</groupId>
+      <artifactId>samza-medical</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.samza</groupId>
+      <artifactId>samza-shell</artifactId>
+      <type>tgz</type>
+      <classifier>dist</classifier>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.samza</groupId>
+      <artifactId>samza-core_2.8.1</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.samza</groupId>
+      <artifactId>samza-serializers_2.8.1</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.samza</groupId>
+      <artifactId>samza-yarn_2.8.1</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.samza</groupId>
+      <artifactId>samza-kafka_2.8.1</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_2.8.1</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 
 </project>

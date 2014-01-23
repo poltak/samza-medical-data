@@ -1,4 +1,4 @@
-package system;
+package poltak.samza.medicaldata.system;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

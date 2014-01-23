@@ -9,7 +9,7 @@
 
   <groupId>samza</groupId>
   <artifactId>samza-medical-data-parent</artifactId>
-  <version>0.7.0</version>
+  <version>0.1</version>
   <packaging>pom</packaging>
   <name>Samza Parent</name>
   <description>
@@ -108,7 +108,6 @@
     <url>http://github.com/poltak/samza-medical-data/issues</url>
   </issueManagement>
 
-  <!--
   <repositories>
     <repository>
       <id>apache-releases</id>
@@ -132,31 +131,8 @@
       <url>http://scala-tools.org/repo-releases</url>
     </pluginRepository>
   </pluginRepositories>
-  -->
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.rat</groupId>
-          <artifactId>apache-rat-plugin</artifactId>
-          <version>0.9</version>
-          <configuration>
-            <excludes>
-              <exclude>.vagrant/**</exclude>
-              <exclude>.git/**</exclude>
-              <exclude>*.md</exclude>
-              <exclude>docs/**</exclude>
-              <exclude>config/**</exclude>
-              <exclude>bin/**</exclude>
-              <exclude>.gitignore</exclude>
-              <exclude>**/.cache/**</exclude>
-              <exclude>deploy/**</exclude>
-            </excludes>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -166,19 +142,6 @@
           <source>1.6</source>
           <target>1.6</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.rat</groupId>
-        <artifactId>apache-rat-plugin</artifactId>
-        <version>0.9</version>
-        <executions>
-          <execution>
-            <phase>test</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-install-plugin</artifactId>
