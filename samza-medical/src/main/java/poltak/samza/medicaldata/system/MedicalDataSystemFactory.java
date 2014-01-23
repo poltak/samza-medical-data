@@ -15,14 +15,9 @@ public class MedicalDataSystemFactory implements SystemFactory
   @Override
   public SystemConsumer getConsumer(final String systemName, final Config config, final MetricsRegistry metricsRegistry)
   {
-    try
-    {
-      return new MedicalDataConsumer(config.get("systems." + systemName), new Patient(null, null, 0, 0, 0, 0.0, 0.0));
-    } catch (InvalidPatientDataException e)
-    {
-      e.printStackTrace();
-      return null; //TODO
-    }
+    MedicalDataFeed feed = new MedicalDataFeed(config.get("systems." + systemName + ".host"));
+
+    return new MedicalDataConsumer(systemName, feed);
   }
 
   @Override
@@ -36,5 +31,4 @@ public class MedicalDataSystemFactory implements SystemFactory
   {
     return new SinglePartitionSystemAdmin();
   }
-
 }

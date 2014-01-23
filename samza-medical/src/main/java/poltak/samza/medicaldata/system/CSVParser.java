@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class CSVParser
 {
@@ -23,8 +20,7 @@ public class CSVParser
   private static final int HEART_RATE               = 6;
 
   /**
-   * Parses a specified CSV file to a Samza stream.
-   * // TODO: get this to return a patient for each line
+   * Parses a specified CSV file to a Samza stream. // TODO: get this to return a patient for each line
    *
    * @param pathToFile The path to the specific CSV formatted file.
    */
@@ -41,20 +37,11 @@ public class CSVParser
         String[] fields = line.split(CSV_DELIMITER);
 
         // Parse and store each of the data fields from the split line.
-        Patient patient = new Patient(fields[ID], new SimpleDateFormat(TIMESTAMP_FORMAT).parse(fields[TIMESTAMP]), Short.parseShort(fields[BLOOD_PRESSURE_SYSTOLIC]),
-                                      Short.parseShort(fields[BLOOD_PRESSURE_DIASTOLIC]), Short.parseShort(fields[HEART_RATE]), Double.parseDouble(fields[CO2]),
-                                      Double.parseDouble(fields[OXYGEN]));
       }
     } catch (FileNotFoundException e)
     {
       // TODO
     } catch (IOException e)
-    {
-      // TODO
-    } catch (ParseException e)
-    {
-      // TODO
-    } catch (InvalidPatientDataException e)
     {
       // TODO
     } finally
