@@ -1,0 +1,15 @@
+*.class
+*.war
+*.ear
+target/
+.classpath
+.project
+.vagrant
+.settings/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
+*/.cache
+deploy
