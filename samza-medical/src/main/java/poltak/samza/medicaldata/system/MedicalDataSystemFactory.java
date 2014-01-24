@@ -11,7 +11,6 @@ import org.apache.samza.util.SinglePartitionSystemAdmin;
 
 public class MedicalDataSystemFactory implements SystemFactory
 {
-  // TODO fix all this
   @Override
   public SystemConsumer getConsumer(final String systemName, final Config config, final MetricsRegistry metricsRegistry)
   {

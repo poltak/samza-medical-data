@@ -4,15 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Date;
+import java.util.*;
 
 public class MedicalDataFeed
 {
-  private       BufferedReader bufferedReader;
-  private final String         dataInputPath;
+  private       BufferedReader                            bufferedReader;
+  private final Set<MedicalDataFeedListener> listeners;
+  private final String                                    dataInputPath;
 
   public MedicalDataFeed(final String dataInputPath)
   {
+    this.listeners = new HashSet<MedicalDataFeedListener>();
     this.dataInputPath = dataInputPath;
   }
 
@@ -36,6 +38,21 @@ public class MedicalDataFeed
     {
       throw new RuntimeException("Unable to close access to file at: " + dataInputPath, e);
     }
+  }
+
+  public void listen(MedicalDataFeedListener listener)
+  {
+    listeners.add(listener);
+  }
+
+  public void unlisten(MedicalDataFeedListener listener)
+  {
+    if (!listeners.contains(listener))
+    {
+      throw new RuntimeException("Trying to unlisten to a channel that listener is not listening to.");
+    }
+
+    listeners.remove(listener);
   }
 
   public static class MedicalDataFeedEvent
@@ -75,9 +92,64 @@ public class MedicalDataFeed
       this.oxygenPercentage = oxygenPercentage;
     }
 
+    public static Map<String, Object> toMap(MedicalDataFeedEvent event)
+    {
+      Map<String, Object> jsonObject = new HashMap<String, Object>();
+
+      jsonObject.put("id", event.getId());
+      jsonObject.put("timestamp", event.getTimeStamp());
+      jsonObject.put("bps", event.getBloodPressureSystolic());
+      jsonObject.put("bpd", event.getBloodPressureDiastolic);
+      jsonObject.put("co2", event.getCO2Percentage());
+      jsonObject.put("oxygen", event.getOxygenPercentage());
+      jsonObject.put("heartrate", event.getHeartRate());
+
+      return jsonObject;
+    }
+
     public String getInputFileName()
     {
       return inputFileName;
     }
+
+    public Date getTimeStamp()
+    {
+      return timeStamp;
+    }
+
+    public String getId()
+    {
+      return id;
+    }
+
+    public int getBloodPressureSystolic()
+    {
+      return bloodPressureSystolic;
+    }
+
+    public int getGetBloodPressureDiastolic()
+    {
+      return getBloodPressureDiastolic;
+    }
+
+    public int getHeartRate()
+    {
+      return heartRate;
+    }
+
+    public double getCO2Percentage()
+    {
+      return CO2Percentage;
+    }
+
+    public double getOxygenPercentage()
+    {
+      return oxygenPercentage;
+    }
+  }
+
+  public static interface MedicalDataFeedListener
+  {
+    void onEvent(MedicalDataFeedEvent event);
   }
 }
