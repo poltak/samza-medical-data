@@ -4,6 +4,7 @@ import org.apache.samza.SamzaException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.supercsv.io.CsvMapReader;
 import org.supercsv.prefs.CsvPreference;
+import poltak.samza.medicaldata.util.InvalidMedicalDataException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -85,7 +86,7 @@ public class MedicalDataFeed
                                 final int heartRate,
                                 final double CO2Percentage,
                                 final double oxygenPercentage)
-        throws InvalidPatientDataException
+        throws InvalidMedicalDataException
     {
       this.inputFileName = inputFileName;
       this.id = id;

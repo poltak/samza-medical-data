@@ -2,10 +2,15 @@ package poltak.samza.medicaldata.system;
 
 import org.apache.samza.Partition;
 import org.apache.samza.system.IncomingMessageEnvelope;
+import org.apache.samza.system.SystemConsumer;
 import org.apache.samza.system.SystemStreamPartition;
 import org.apache.samza.util.BlockingEnvelopeMap;
 import poltak.samza.medicaldata.system.MedicalDataFeed.MedicalDataFeedEvent;
 import poltak.samza.medicaldata.system.MedicalDataFeed.MedicalDataFeedListener;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class MedicalDataConsumer extends BlockingEnvelopeMap implements MedicalDataFeedListener
 {
@@ -26,7 +31,7 @@ public class MedicalDataConsumer extends BlockingEnvelopeMap implements MedicalD
     try
     {
       put(systemStreamPartition,
-          new IncomingMessageEnvelope(systemStreamPartition, null, null, MedicalDataFeedEvent.toMap(event)));
+          new IncomingMessageEnvelope(systemStreamPartition, null, null, event));
     } catch (InterruptedException e)
     {
       // TODO
