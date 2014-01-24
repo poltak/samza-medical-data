@@ -17,6 +17,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.8.5" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.jackson:jackson-core-asl:1.8.5" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.8.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: net.sf.supercsv:super-csv:2.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.samza:samza-core_2.8.1:0.7.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.scala-lang:scala-library:2.8.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.clapper:grizzled-slf4j_2.8.1:0.6.10" level="project" />

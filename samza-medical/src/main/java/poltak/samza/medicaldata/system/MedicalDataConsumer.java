@@ -25,7 +25,8 @@ public class MedicalDataConsumer extends BlockingEnvelopeMap implements MedicalD
 
     try
     {
-      put(systemStreamPartition, new IncomingMessageEnvelope(systemStreamPartition, null, null, event));
+      put(systemStreamPartition,
+          new IncomingMessageEnvelope(systemStreamPartition, null, null, MedicalDataFeedEvent.toMap(event)));
     } catch (InterruptedException e)
     {
       // TODO
