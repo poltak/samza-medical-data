@@ -21,7 +21,7 @@ public class MedicalDataFeedStreamTask implements StreamTask
 
   @Override
   public void process(final IncomingMessageEnvelope incomingMessageEnvelope, final MessageCollector messageCollector,
-                      final TaskCoordinator taskCoordinator) throws Exception
+                      final TaskCoordinator taskCoordinator)
   {
     MedicalData dataReceived;
     try
@@ -29,6 +29,9 @@ public class MedicalDataFeedStreamTask implements StreamTask
       // TODO: check that a String is actually received
       dataReceived = parseLineOfData((String) incomingMessageEnvelope.getMessage());
     } catch (InvalidMedicalDataException e)
+    {
+      dataReceived = null;
+    } catch (ParseException e)
     {
       dataReceived = null;
     }
