@@ -19,7 +19,16 @@
   </fileSets>
   <files>
     <file>
+      <source>${basedir}/src/main/resources/log4j.xml</source>
+      <outputDirectory>lib</outputDirectory>
+    </file>
+    <file>
       <source>${basedir}/src/main/config/medical-data-feed.properties</source>
+      <outputDirectory>config</outputDirectory>
+      <filtered>true</filtered>
+    </file>
+    <file>
+      <source>${basedir}/src/main/config/medical-data-validator.properties</source>
       <outputDirectory>config</outputDirectory>
       <filtered>true</filtered>
     </file>
@@ -41,7 +50,6 @@
         <include>org.apache.samza:samza-serializers_2.8.1</include>
         <include>org.apache.samza:samza-yarn_2.8.1</include>
         <include>org.slf4j:slf4j-log4j12</include>
-        <include>samza:medical-data</include>
         <include>org.apache.kafka:kafka_2.8.1</include>
       </includes>
       <useTransitiveFiltering>true</useTransitiveFiltering>
