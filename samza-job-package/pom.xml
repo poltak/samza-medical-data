@@ -2,14 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>samza-medical-data-parent</artifactId>
-    <groupId>samza</groupId>
-    <version>0.1</version>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>samza</groupId>
+    <artifactId>samza-medical-data-parent</artifactId>
+    <version>0.1</version>
+  </parent>
+
   <artifactId>samza-job-package</artifactId>
+  <name>Samza Job Package</name>
   <packaging>jar</packaging>
 
   <dependencies>
