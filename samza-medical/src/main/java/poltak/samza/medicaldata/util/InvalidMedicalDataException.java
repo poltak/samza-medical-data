@@ -1,8 +1,6 @@
 package poltak.samza.medicaldata.util;
 
-import org.apache.samza.SamzaException;
-
-public class InvalidMedicalDataException extends SamzaException
+public class InvalidMedicalDataException extends Exception
 {
   public InvalidMedicalDataException()
   {
