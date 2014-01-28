@@ -71,16 +71,6 @@
         <artifactId>slf4j-log4j12</artifactId>
         <version>1.6.2</version>
       </dependency>
-      <dependency>
-        <groupId>org.codehaus.jackson</groupId>
-        <artifactId>jackson-jaxrs</artifactId>
-        <version>1.8.5</version>
-      </dependency>
-      <dependency>
-        <groupId>net.sf.supercsv</groupId>
-        <artifactId>super-csv</artifactId>
-        <version>2.1.0</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
